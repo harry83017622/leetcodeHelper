@@ -2,7 +2,7 @@
 
 ## **Description**
 ---  
-This project is a leetcode helper toolkit. This toolkit help you to leetcode without actually
+This project is a leetcode helper toolkit. This toolkit help you to leetcode without actually opening your browser.
 
 
 ## **Getting Start**
