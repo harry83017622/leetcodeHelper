@@ -10,6 +10,7 @@ from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 
 import sys
+import os
 
 
 class driverHandler(object):
@@ -34,6 +35,7 @@ class driverHandler(object):
             WebDriverWait(self.driver, delay).until(EC.presence_of_element_located((By.ID, 'app')))
             print("Page is ready!")
         except TimeoutException:
+            print("Try different keywords or check your internet connection")
             sys.exit("Loading took too much time!")
 
         print('finish checking loading page')
@@ -64,3 +66,15 @@ class driverHandler(object):
         
     def quitDriver(self):
         self.driver.quit()
+
+def writeResutlsToFile(name,question_description,starter_code):
+    if os.path.exists(name+'.py'):
+        print('{}.py exists'.format(name))
+    else:
+        try:
+            print ("create {} file".format(name))
+            with open(name+'.py', "w", encoding="utf-8") as file:
+                file.write("''' \n" + question_description + "\n'''" + starter_code)
+        except NameError:
+            print('content is None. Try again or use different keywords!')
+    return

@@ -1,4 +1,4 @@
-from utils.tools import driverHandler
+from utils.tools import driverHandler, writeResutlsToFile
 import os
 import sys
 
@@ -15,14 +15,6 @@ if __name__=='__main__':
     question_description = crawler.descriptionParser()
     starter_code = crawler.starterCodeParser()
     crawler.quitDriver()
+    writeResutlsToFile(args.name,question_description,starter_code)
 
-    if os.path.exists(crawler.problemName+'.py'):
-        print('{}.py exists'.format(crawler.problemName))
-    else:
-        try:
-            print ("create {} file".format(crawler.problemName))
-            with open(crawler.problemName+'.py', "w", encoding="utf-8") as file:
-                file.write("''' \n" + question_description + "\n'''" + starter_code)
-        except NameError:
-            print('content is None. Try again or use different keywords!')
     sys.exit("Finish crawling!")
