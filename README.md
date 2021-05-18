@@ -1,39 +1,49 @@
-# **LeetcodeHelper**
+[![PyPI - Python](https://img.shields.io/badge/python-3.6%20|%203.7%20|%203.8|%203.9-blue.svg)](https://pypi.org/project/KeyExtractor/)
+[![PyPI - PyPi](https://img.shields.io/pypi/v/leetcodeHelper)](https://pypi.org/project/leetcodeHelper/)
 
-## **Description**
----  
-This project is a leetcode helper toolkit. This toolkit help you to leetcode without actually opening your browser.
-
-
+**This project helps you to do leetcode with your preferred IDE or editor with command-line interface (CLI).**
+<br></br>
 ## **Getting Start**
 ---  
 #### **Prerequisites**
 
-* Windows 10, python3.9 (maybe >=3.6 is fine).
-* Linux and Docker will be supported ASAP.
-* pip or conda
-* chrome version 90.0.4430
+* Windows 10, MacOS, Linux
+* chrome version >=90.0.4430
 
 
 #### **Installation**
 
-    git clone https://github.com/harry83017622/leetcodeHelper.git
+```
+# Prepare your virtual environment
+conda create --name [env_name] python=3.9
+conda activate [env_name]
 
-    Install pip packages
-
-    pip install -r requirements.txt
+# Install this package
+pip install leetcodeHelper
+```
 
 #### **Usage**
 
-For now, you can only crawl leetcode website by entering correct question names. For example:  
 ```
-python3 main.py --name two-sum  
-python3 main.py --name add-two-numbers
-python3 main.py --name median-of-two-sorted-arrays
+# This command helps to load Chrome driver for you 
+leetcode --init
+
+# This CLI supports querying problems by names
+leetcode --name two-sum  
+leetcode --name add-two-numbers
+leetcode --name median-of-two-sorted-arrays
 ```
-Then question description and starter code will be automatically generated into question-name.py file. Now, you can leetcode whenever in your preferred IDE.
-## **To Do**
+Then question description and starter code will be automatically generated into question-name.py file. Now, you can do leetcode whenever in your preferred IDE.
+<br></br>
+## **Acknowledgments**
+---
+The part of Chrome driver installation is modified from [**@peterhudec**](https://github.com/authomatic/chromedriver_installer) project.  
+Also, this project is inspired by [**@allenyummy**](https://github.com/allenyummy/KeyExtractor)'s project.  
+<br></br>
+
+## **Next release version**
 ---  
+* Fix the format error in the result file (change line missing).
 * Crawl by the Number/Tag/Level/Category of the questions.
 * Post your code back to leetcode platform and check all testcases. Retreive results.  
-* Docker and Linux compatibility
+* Docker version
