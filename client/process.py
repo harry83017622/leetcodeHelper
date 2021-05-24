@@ -1,8 +1,8 @@
 import json
 from collections import OrderedDict
-from .leetcode import Leetcode
+from client.leetcode import Leetcode
 
-from ..coding.code import get_code_file_path, get_code_for_submission
+from coding.code import get_code_file_path, get_code_for_submission
 
 
 class Process(object):

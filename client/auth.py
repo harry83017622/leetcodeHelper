@@ -23,14 +23,17 @@ class Auth(object):
     def __init__(self):
         self.cookies = None
         self.get_cookies_from_chrome()
+        config.load()
+        self.config = config
 
     def get_cookies_from_local_file(self):
         COOKIE_PATH = os.path.join(CONFIG_FOLDER, 'cookies')
         self.cookies = cookiejar.FileCookieJar(COOKIE_PATH)
         try:
             self.cookies.load(ignore_discard=True)
-        except Exception:
-            pass
+        except Exception as e:
+            print(e)
+            
 
     def get_cookies_from_chrome(self):
         try:
@@ -40,6 +43,8 @@ class Auth(object):
             print("Cannot get cookies from chrome")
 
     def login(self):
+        config = self.config
+
         if not config.username or not config.password:
             return False
         login_data = {}
